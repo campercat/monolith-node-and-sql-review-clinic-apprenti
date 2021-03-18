@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS cats;
+
+CREATE TABLE cats (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  human VARCHAR(255),
+  age INTEGER
+);
