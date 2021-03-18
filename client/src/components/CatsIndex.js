@@ -37,7 +37,7 @@ const CatsIndex = (props) => {
   return(
     <>
       <h1>My Cats</h1>
-      <Link to="/cats/new">Add a New Cat!</Link>
+      <h3><Link to="/cats/new">Add a New Cat!</Link></h3>
       <ul>
         {catListItems}
       </ul>

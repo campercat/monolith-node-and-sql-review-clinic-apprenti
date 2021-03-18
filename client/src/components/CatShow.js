@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const CatShow = (props) => {
   const [cat, setCat] = useState({})
@@ -25,9 +26,10 @@ const CatShow = (props) => {
 
   return (
     <>
+      <h3><Link to="/cats">Back to All Cats</Link></h3>
       <h1>Name: {cat.name}</h1>
+      <h2>Age: {cat.age}</h2>
       <h2>Human: { cat.human ? cat.human : "N/A" }</h2>
-      <h2>Age: { cat.age ? cat.age : "N/A" }</h2>
     </>
   )
 }

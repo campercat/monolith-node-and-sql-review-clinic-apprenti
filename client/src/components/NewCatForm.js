@@ -1,12 +1,15 @@
 import React, { useState } from "react"
-import { Redirect } from "react-router-dom"
+import { Link, Redirect } from "react-router-dom"
+
 import ErrorList from "./ErrorList"
 
 const NewCatForm = props => {
   const [newCat, setNewCat] = useState({
-    title: "",
-    location: ""
+    name: "",
+    age: "",
+    human: ""
   })
+
   const [errors, setErrors] = useState([])
   const [shouldRedirect, setShouldRedirect] = useState(false)
 
@@ -22,8 +25,7 @@ const NewCatForm = props => {
       if (!response.ok) {
         if (response.status === 422) {
           const body = await response.json()
-          // const newErrors = translateServerErrors(body.errors)
-          return setErrors(newErrors)
+          return setErrors(body.errors)
         } else {
           const errorMessage = `${response.status} (${response.statusText})`
           const error = new Error(errorMessage)
@@ -58,7 +60,10 @@ const NewCatForm = props => {
   return (
     <>
       <h1>Add a New Cat</h1>
+      <h3><Link to="/cats">Back to All Cats</Link></h3>
+
       <ErrorList errors={errors} />
+      
       <form onSubmit={handleSubmit} className="callout">
         <label htmlFor="name">
          Name:
