@@ -18,7 +18,7 @@ class Seeder {
     LineReader.eachLine(catPath, async (line, last, done) => {
       const [ name, human, age ] = line.split(";")
       // build our SQL query string
-      const queryString = "INSERT INTO cats ( name, human, age) VALUES ($1, $2, $3);"
+      const queryString = "INSERT INTO cats (name, human, age) VALUES ($1, $2, $3);"
 
       //execute our query
       try {
